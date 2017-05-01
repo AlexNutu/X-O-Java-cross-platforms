@@ -30,16 +30,18 @@ public class Login extends HttpServlet {
         String pass = request.getParameter("pass");
         if (newUser != null && !newUser.trim().equals("") && pass!=null && !pass.trim().equals(""))
         {
-            HttpSession session = request.getSession(true);
-            session.setAttribute("cos", new HashMap());
-            session.setAttribute("currentUser", newUser);
+            if(pass.equals(DATABASE_MOCKUP.userAndPass.get(newUser))) {
+                HttpSession session = request.getSession(true);
+                session.setAttribute("cos", new HashMap());
+                session.setAttribute("currentUser", newUser);
+            }
+            else{
+                request.setAttribute("error", "Incorrect user+pass combination!");
+            }
         }
         else
         {
-            request.setAttribute("error", "Nume utilizator incorect!");
-            HttpSession session = request.getSession(true);
-            session.setAttribute("cos", new HashMap());
-            session.setAttribute("currentUser", newUser);
+            request.setAttribute("error", "Insufficient parameters!");
         }
         RequestDispatcher view = request.getRequestDispatcher("index.jsp");// daca linia asta si urmatoare nu ar fi fost scris, atunci nu ne-ar fi afisat nimic, face forward
         view.forward(request, response);

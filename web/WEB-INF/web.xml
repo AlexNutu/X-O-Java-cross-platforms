@@ -23,6 +23,15 @@
         <servlet-name>Adauga</servlet-name>
         <servlet-class>newpackage.Adauga</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Signup</servlet-name>
+        <servlet-class>newpackage.Signup</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreateAccount</servlet-name>
+        <servlet-class>newpackage.CreateAccount</servlet-class>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -31,6 +40,15 @@
         <servlet-name>Adauga</servlet-name>
         <url-pattern>/Adauga</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Signup</servlet-name>
+        <url-pattern>/Signup</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateAccount</servlet-name>
+        <url-pattern>/CreateAccount</url-pattern>
+    </servlet-mapping>
+
     <servlet-mapping>
 	<servlet-name>jersey-serlvet</servlet-name>
 	<url-pattern>/rest/*</url-pattern>

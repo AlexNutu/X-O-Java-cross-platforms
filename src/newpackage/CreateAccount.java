@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-public class Signup extends HttpServlet {
+public class CreateAccount extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -26,7 +26,17 @@ public class Signup extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setAttribute("signup",true);
+        String user = request.getParameter("newUser");
+        String pass = request.getParameter("newPass");
+
+        if(DATABASE_MOCKUP.userAndPass.get(user) == null && user != null && !user.trim().equals("") && pass != null && !pass.trim().equals("")) { //daca nu exista deja utilizator cu acelasi nume
+            DATABASE_MOCKUP.userAndPass.put(user, pass);
+            request.setAttribute("accountCreated", true);
+            request.setAttribute("signup",false);
+        } else {
+            request.setAttribute("accountCreated", false);
+            request.setAttribute("signup",true);
+        }
         RequestDispatcher view = request.getRequestDispatcher("index.jsp");// daca linia asta si urmatoare nu ar fi fost scris, atunci nu ne-ar fi afisat nimic, face forward
         view.forward(request, response);
     }
