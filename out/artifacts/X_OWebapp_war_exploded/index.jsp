@@ -15,7 +15,7 @@ and open the template in the editor.
 <body>
 
 <%
-    out.println(session.getAttribute("currentUser"));
+    out.println(request.getAttribute("signup"));
     if (request.getAttribute("signup") != null && (Boolean) request.getAttribute("signup")) { //daca a dat click pe signup
 %>
 <form action="CreateAccount" method="post"><br><br>
@@ -48,6 +48,12 @@ and open the template in the editor.
 } else {
 %>
 Bine ai revenit <%= currentUser %><br/>
+<form action="Logout" method="post">
+    <br><input type="submit" value="Logout"/>
+</form>
+<form action="StartGame" method="post">
+    <br><input type="submit" value="StartGame"/>
+</form>
 <%
         }
     }

@@ -31,6 +31,14 @@
         <servlet-name>CreateAccount</servlet-name>
         <servlet-class>newpackage.CreateAccount</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>newpackage.Logout</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StartGame</servlet-name>
+        <servlet-class>newpackage.StartGame</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
@@ -47,6 +55,14 @@
     <servlet-mapping>
         <servlet-name>CreateAccount</servlet-name>
         <url-pattern>/CreateAccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StartGame</servlet-name>
+        <url-pattern>/StartGame</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>

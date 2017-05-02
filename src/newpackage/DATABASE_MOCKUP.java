@@ -9,5 +9,6 @@ public class DATABASE_MOCKUP {
     public static HashMap<String,String> userAndPass;
     static{
         userAndPass = new HashMap<>();
+        userAndPass.put("a","a");
     }
 }
