@@ -20,29 +20,9 @@ import javax.ws.rs.core.Response;
 public class RestService {
     
     @GET
-    @Path("/export/{maxItems}")
-    public Response exportCos(@Context HttpServletRequest request, @PathParam("maxItems") Integer maxItems)
+    @Path("/export/{value}")
+    public Response export(@Context HttpServletRequest request, @PathParam("value") Integer value)
     {
-        HttpSession session = request.getSession(true);
-        HashMap<String, Integer> cos = (HashMap<String, Integer>) session.getAttribute("cos");
-        if (cos == null)
-        {
-            return Response.status(200).entity("").build();
-        }
-        else
-        {
-            StringBuilder returnValue = new StringBuilder();
-            int itemNr = 1;
-            for(Entry<String, Integer> entry : cos.entrySet())
-            {
-                if (itemNr > maxItems)
-                {
-                    break;
-                }
-                returnValue.append(entry.getKey()).append(" - ").append(entry.getValue());
-                itemNr++;
-            }
-            return Response.status(200).entity(returnValue.toString()).build();
-        }
+        return Response.status(Response.Status.ACCEPTED).entity("valoarea de la url este " + value).build();
     }
 }
